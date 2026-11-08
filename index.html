@@ -1,21 +1,17 @@
 <!doctype html>
-<html lang="id">
+<html lang="id" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f7f8f5" />
-
+    <meta name="theme-color" content="#0b0f17" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
-    <!-- SEO -->
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Aldrich Putra Utama" />
     <meta
       name="description"
       content="Portfolio pribadi Aldrich Putra Utama, mahasiswa Sistem Informasi yang tertarik pada teknologi, pengembangan website, dan analisis sistem."
     />
-
-    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
@@ -23,187 +19,318 @@
     />
     <meta
       property="og:description"
-      content="Portfolio pribadi Aldrich Putra Utama, mahasiswa Sistem Informasi yang tertarik pada teknologi, pengembangan website, dan analisis sistem."
-    />
-    <meta property="og:locale" content="id_ID" />
-
-    <!-- Twitter / X -->
-    <meta name="twitter:card" content="summary" />
-    <meta
-      name="twitter:title"
-      content="Aldrich Putra Utama | Digital Portfolio"
-    />
-    <meta
-      name="twitter:description"
       content="Portfolio pribadi mahasiswa Sistem Informasi."
     />
-
+    <meta property="og:locale" content="id_ID" />
+    <meta name="twitter:card" content="summary" />
     <title>Aldrich Putra Utama | Digital Portfolio</title>
 
-    <!-- Google Fonts -->
+    <script>
+      try {
+        var t = localStorage.getItem("apu-portfolio-theme");
+        if (t === "light" || t === "dark")
+          document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    </script>
+
+    <!-- Fonts: Space Grotesk 700 · Plus Jakarta Sans 400/500 · JetBrains Mono 500 -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Plus+Jakarta+Sans:wght@400;500&family=Space+Grotesk:wght@700&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Main CSS -->
     <link rel="stylesheet" href="style.css" />
-
-    <!-- Main JavaScript -->
     <script src="script.js" defer></script>
   </head>
 
   <body>
-    <!-- SKIP LINK: AKSESIBILITAS KEYBOARD -->
-    <a class="skip-link" href="#main-content"> </a>
+    <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-    <!-- HEADER & NAVIGATION -->
+    <!-- HEADER -->
     <header class="site-header" id="header">
       <div class="container header-container">
         <a
           href="#beranda"
           class="brand"
-          aria-label="APU Digital Portfolio - Beranda"
+          aria-label="Aldrich Putra Utama - Beranda"
         >
-          <span class="brand-logo" aria-hidden="true">APU</span>
-
-          <span class="brand-text">
-            <strong>APU.</strong>
-            <small>SI PORTFOLIO</small>
-          </span>
+          <span class="brand-mark" aria-hidden="true">APU</span>
+          <span class="brand-name">Aldrich Putra Utama</span>
         </a>
 
-        <button
-          class="menu-toggle"
-          id="menuToggle"
-          type="button"
-          aria-label="Buka menu navigasi"
-          aria-expanded="false"
-          aria-controls="navLinks"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
         <nav class="nav-links" id="navLinks" aria-label="Navigasi utama">
-          <a href="#beranda">Beranda</a>
+          <a href="#proyek">Proyek</a>
           <a href="#tentang">Tentang</a>
           <a href="#keahlian">Keahlian</a>
           <a href="#pendidikan">Pendidikan</a>
           <a href="#sertifikat">Sertifikat</a>
-          <a href="#proyek">Proyek</a>
           <a href="#kontak">Kontak</a>
         </nav>
 
-        <a href="#kontak" class="header-cta">
-          Hubungi Saya <span aria-hidden="true">↗</span>
-        </a>
+        <div class="header-actions">
+          <button
+            class="icon-btn"
+            id="themeToggle"
+            type="button"
+            aria-label="Aktifkan Light Mode"
+            aria-pressed="false"
+            title="Ganti tema"
+          >
+            <span class="theme-icon" aria-hidden="true">☀</span>
+          </button>
+          <a href="#kontak" class="btn btn-solid btn-sm header-cta">Hubungi</a>
+          <button
+            class="icon-btn menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Buka menu navigasi"
+            aria-expanded="false"
+            aria-controls="navLinks"
+          >
+            <span></span><span></span>
+          </button>
+        </div>
       </div>
     </header>
 
-    <!-- MAIN CONTENT -->
     <main id="main-content" tabindex="-1">
-      <!-- HERO / BERANDA -->
-      <section class="hero-section" id="beranda">
-        <div class="container hero-container">
+      <!-- HERO -->
+      <section class="hero" id="beranda">
+        <div class="container hero-grid">
           <div class="hero-content js-reveal">
-            <p class="section-eyebrow">
-              <span aria-hidden="true">✧</span>
-              INFORMATION SYSTEMS STUDENT · DIGITAL IDENTITY
+            <p class="badge">
+              <span class="badge-dot" aria-hidden="true"></span>Mahasiswa Sistem
+              Informasi
             </p>
 
             <h1>
-              HALO, SAYA
-              <span class="hero-name">Aldrich Putra Utama.</span>
+              <span class="line">Aldrich</span>
+              <span class="line line-2">Putra Utama.</span>
             </h1>
 
             <p class="hero-tagline">
               Exploring Technology, Creating Possibilities.
             </p>
-
             <p class="hero-description">
-              Saya merupakan mahasiswa Sistem Informasi yang memiliki
-              ketertarikan pada teknologi, pengembangan website, serta analisis
+              Saya tertarik pada teknologi, pengembangan website, dan analisis
               sistem. Website ini menjadi ruang untuk memperkenalkan diri,
               perjalanan pendidikan, pengalaman, dan karya yang saya kembangkan.
             </p>
 
             <div class="hero-actions">
-              <a href="#tentang" class="btn btn-primary">
-                Kenali Saya <span aria-hidden="true">↓</span>
-              </a>
-
-              <a href="#proyek" class="btn btn-secondary">
-                Lihat Proyek <span aria-hidden="true">↗</span>
-              </a>
-            </div>
-
-            <div class="hero-meta">
-              <div class="meta-item">
-                <span class="meta-label">FOKUS</span>
-                <strong>Teknologi Digital</strong>
-              </div>
-
-              <div class="meta-item">
-                <span class="meta-label">PROGRAM STUDI</span>
-                <strong>Sistem Informasi</strong>
-              </div>
-
-              <div class="meta-item">
-                <span class="meta-label">STATUS</span>
-                <strong>Mahasiswa</strong>
-              </div>
+              <a href="#proyek" class="btn btn-solid"
+                >Lihat Proyek <span aria-hidden="true">→</span></a
+              >
+              <a href="#tentang" class="btn btn-ghost">Kenali Saya</a>
             </div>
           </div>
 
-          <div class="hero-visual js-reveal">
-            <div class="profile-frame">
-              <div class="profile-decoration profile-decoration-top"></div>
-              <div class="profile-decoration profile-decoration-bottom"></div>
-
-              <div class="profile-image-wrapper">
-                <img
-                  src="images/profil.jpeg"
-                  alt="Foto profil Aldrich Putra Utama"
-                  class="profile-image"
-                  fetchpriority="high"
-                />
-              </div>
-
-              <div class="profile-caption">
-                <span class="caption-dot" aria-hidden="true"></span>
-                <span>PERSONAL DIGITAL IDENTITY</span>
-              </div>
+          <figure class="portrait js-reveal">
+            <div class="portrait-img">
+              <img
+                src="images/profil.jpeg"
+                alt="Foto profil Aldrich Putra Utama"
+                fetchpriority="high"
+              />
             </div>
+            <figcaption>
+              <span>Aldrich Putra Utama</span>
+              <span>SI · Komputama Cilacap</span>
+            </figcaption>
+          </figure>
+
+          <dl class="spec">
+            <div class="spec-item js-reveal">
+              <dt>Fokus</dt>
+              <dd>Teknologi Digital</dd>
+            </div>
+            <div class="spec-item js-reveal">
+              <dt>Program Studi</dt>
+              <dd>Sistem Informasi</dd>
+            </div>
+            <div class="spec-item js-reveal">
+              <dt>Status</dt>
+              <dd>Mahasiswa</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- PROJECTS (bento 3 kolom) -->
+      <section class="section" id="proyek">
+        <div class="container">
+          <div class="section-head js-reveal">
+            <p class="label">01 — Karya</p>
+            <h2>Proyek &amp; karya.</h2>
+            <p>
+              Beberapa proyek yang pernah saya kerjakan sebagai bagian dari
+              pengalaman belajar di bidang teknologi informasi.
+            </p>
+          </div>
+
+          <div class="filter-row js-reveal">
+            <div
+              class="filter"
+              role="group"
+              aria-label="Filter proyek berdasarkan kategori"
+            >
+              <button
+                class="filter-btn is-active"
+                type="button"
+                data-filter="all"
+                aria-pressed="true"
+              >
+                <span class="filter-label">Semua</span>
+                <span class="count" aria-hidden="true"></span>
+              </button>
+              <button
+                class="filter-btn"
+                type="button"
+                data-filter="web"
+                aria-pressed="false"
+              >
+                <span class="filter-label">Web App</span>
+                <span class="count" aria-hidden="true"></span>
+              </button>
+              <button
+                class="filter-btn"
+                type="button"
+                data-filter="system"
+                aria-pressed="false"
+              >
+                <span class="filter-label">Sistem</span>
+                <span class="count" aria-hidden="true"></span>
+              </button>
+            </div>
+            <p class="filter-result" aria-hidden="true">
+              Menampilkan <strong id="resultCount">0</strong> proyek
+            </p>
+          </div>
+          <p class="sr-only" id="filterStatus" aria-live="polite"></p>
+
+          <div class="projects-grid" id="projectGrid">
+            <!-- ===== TEMPLATE KARTU PROYEK (salin blok ini) =====
+                 .span-2  → kartu lebar (2 kolom); hapus untuk kartu 1 kolom
+                 data-category → "web", "system", atau keduanya dipisah spasi
+                 Jumlah pada tombol filter dihitung otomatis dari kartu-kartu ini. -->
+            <article
+              class="card project span-2 js-reveal"
+              data-category="web system"
+            >
+              <!-- Ganti isi .project-media dengan <img src="images/proyek-1.jpg" alt="..."> bila ada screenshot -->
+              <div class="project-media">
+                <span class="media-mark">LIB.</span>
+                <div class="project-overlay">
+                  <p>CRUD, autentikasi login &amp; logout.</p>
+                  <div class="overlay-actions">
+                    <a href="#" class="btn btn-solid btn-sm">Live Demo ↗</a>
+                    <a
+                      href="https://github.com/aldrichputraa"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="btn btn-ghost btn-sm"
+                      >GitHub</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="project-meta">
+                  <span>Project 01</span><span>Web App · Sistem</span>
+                </div>
+                <h3>Sistem Informasi Perpustakaan</h3>
+                <p>
+                  Website sistem informasi perpustakaan yang dikembangkan untuk
+                  membantu pengelolaan data perpustakaan. Proyek ini mencakup
+                  fitur CRUD serta autentikasi login dan logout.
+                </p>
+                <div class="tags">
+                  <span>HTML</span><span>CSS</span><span>JavaScript</span
+                  ><span>PHP</span><span>MySQL</span>
+                </div>
+              </div>
+            </article>
+            <!-- ===== AKHIR TEMPLATE ===== -->
+
+            <article class="card project js-reveal" data-category="web">
+              <div class="project-media">
+                <span class="media-mark">EDU.</span>
+                <div class="project-overlay">
+                  <p>Proyek awal mempelajari pengembangan website.</p>
+                  <div class="overlay-actions">
+                    <a href="#" class="btn btn-solid btn-sm">Live Demo ↗</a>
+                    <a
+                      href="https://github.com/aldrichputraa"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="btn btn-ghost btn-sm"
+                      >GitHub</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="project-meta">
+                  <span>Project 02</span><span>Web App</span>
+                </div>
+                <h3>Website Informasi Pendidikan</h3>
+                <p>
+                  Proyek website bertema informasi pendidikan yang menjadi
+                  bagian dari pengalaman awal saya dalam mengenal dan
+                  mempelajari proses pengembangan website.
+                </p>
+                <div class="tags">
+                  <span>Web Development</span><span>Education</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slot placeholder: ganti dengan template di atas bila proyek baru sudah siap -->
+            <article
+              class="card project is-placeholder js-reveal"
+              data-category=""
+            >
+              <div class="placeholder-body">
+                <span class="plus" aria-hidden="true">+</span>
+                <h3>Proyek berikutnya</h3>
+                <p>Sedang dikerjakan.</p>
+              </div>
+            </article>
+
+            <article
+              class="card project is-placeholder span-2 js-reveal"
+              data-category=""
+            >
+              <div class="placeholder-body">
+                <span class="plus" aria-hidden="true">+</span>
+                <h3>Segera hadir</h3>
+                <p>Karya baru akan ditampilkan di sini.</p>
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
-      <!-- ABOUT / TENTANG -->
-      <section class="about-section section-padding" id="tentang">
+      <!-- ABOUT -->
+      <section class="section" id="tentang">
         <div class="container">
-          <div class="section-heading js-reveal">
-            <p class="section-eyebrow">01 / ABOUT ME</p>
-            <h2>Tentang <span>Saya.</span></h2>
+          <div class="section-head js-reveal">
+            <p class="label">02 — Tentang</p>
+            <h2>Tentang saya.</h2>
             <p>
               Mengenal lebih dekat perjalanan, ketertarikan, dan prinsip yang
               menjadi bagian dari proses perkembangan diri saya.
             </p>
           </div>
 
-          <div class="about-grid">
-            <div class="about-main-card js-reveal">
-              <span class="card-index">A LITTLE INTRODUCTION</span>
-
+          <div class="bento">
+            <article class="cell cell-main js-reveal">
+              <p class="label muted">Perkenalan</p>
               <h3>
-                Belajar memahami teknologi,
-                <span>menciptakan sesuatu yang bermanfaat.</span>
+                Belajar memahami teknologi, menciptakan sesuatu yang bermanfaat.
               </h3>
-
               <p>
                 Saya adalah mahasiswa Sistem Informasi yang memiliki
                 ketertarikan pada perkembangan teknologi, pengembangan website,
@@ -211,7 +338,6 @@
                 serta mengembangkan kemampuan di bidang teknologi informasi
                 melalui proses belajar dan eksplorasi.
               </p>
-
               <p>
                 Saya percaya bahwa setiap proses pembelajaran merupakan
                 kesempatan untuk mengenali potensi diri, memperluas wawasan, dan
@@ -219,144 +345,185 @@
                 berkembang bukan tentang menjadi sempurna, melainkan tentang
                 terus mencoba, belajar, dan memperbaiki diri.
               </p>
+            </article>
+
+            <article class="cell js-reveal">
+              <p class="label muted">Minat</p>
+              <h3>Technology &amp; Web Development</h3>
+              <p>
+                Tertarik pada perkembangan teknologi, pengembangan website, dan
+                analisis sistem informasi.
+              </p>
+            </article>
+
+            <article class="cell js-reveal">
+              <p class="label muted">Hobi</p>
+              <h3>Membaca Komik</h3>
+              <p>
+                Menikmati cerita melalui perpaduan narasi dan ilustrasi visual
+                di luar aktivitas akademik.
+              </p>
+            </article>
+
+            <!-- Banner penutup selebar grid -->
+            <blockquote class="cell cell-wide js-reveal">
+              <p class="label muted">Prinsip</p>
+              <p class="quote">
+                “Bukan tentang seberapa cepat aku mencapai tujuan, tetapi
+                seberapa kuat tekadku untuk terus melangkah dan berkembang.”
+              </p>
+            </blockquote>
+          </div>
+
+          <!-- Terminal interaktif (diaktifkan oleh script.js; tersembunyi bila JS mati) -->
+          <div
+            class="terminal js-reveal"
+            id="terminal"
+            role="group"
+            aria-label="Terminal interaktif"
+            hidden
+          >
+            <div class="terminal-bar">
+              <span class="terminal-dots" aria-hidden="true"
+                ><i class="td-red"></i><i class="td-yellow"></i
+                ><i class="td-green"></i
+              ></span>
+              <span class="terminal-title">aldrich@portfolio: ~</span>
+              <span class="terminal-hint" aria-hidden="true">ketik “help”</span>
             </div>
-
-            <div class="about-side-content">
-              <article class="about-info-card js-reveal">
-                <span class="info-number" aria-hidden="true">01</span>
-
-                <div>
-                  <span class="info-label">MINAT</span>
-                  <h3>Technology & Web Development</h3>
-
-                  <p>
-                    Tertarik pada perkembangan teknologi, pengembangan website,
-                    dan analisis sistem informasi.
-                  </p>
-                </div>
-              </article>
-
-              <article class="about-info-card js-reveal">
-                <span class="info-number" aria-hidden="true">02</span>
-
-                <div>
-                  <span class="info-label">HOBI</span>
-                  <h3>Membaca Komik</h3>
-
-                  <p>
-                    Di luar aktivitas akademik, saya menikmati membaca komik
-                    sebagai salah satu bentuk hiburan dan cara menikmati cerita
-                    melalui perpaduan narasi serta ilustrasi visual.
-                  </p>
-                </div>
-              </article>
-
-              <div class="about-motto js-reveal">
-                <span>PERSONAL PRINCIPLE</span>
-                <p>“Belajar, berkembang, berkarya.”</p>
+            <div class="terminal-screen" id="terminalScreen">
+              <div
+                class="terminal-output"
+                id="terminalOutput"
+                role="log"
+                aria-live="polite"
+              ></div>
+              <div class="t-prompt-row">
+                <span class="t-symbol" aria-hidden="true">$</span>
+                <span
+                  class="t-typing is-empty"
+                  data-placeholder="Type 'help', 'bio', 'projects', 'secret'..."
+                  ><span class="t-typed" id="terminalTyped"></span
+                  ><span class="t-caret" aria-hidden="true"></span
+                ></span>
+                <input
+                  class="t-input"
+                  id="terminalInput"
+                  type="text"
+                  autocomplete="off"
+                  autocapitalize="off"
+                  autocorrect="off"
+                  spellcheck="false"
+                  placeholder="Type 'help', 'bio', 'projects', 'secret'..."
+                  aria-label="Ketik perintah terminal, misalnya help"
+                />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- SKILLS / KEAHLIAN -->
-      <section class="skills-section section-padding" id="keahlian">
+      <!-- SKILLS + STACK -->
+      <section class="section" id="keahlian">
         <div class="container">
-          <div class="section-heading js-reveal">
-            <p class="section-eyebrow">02 / MY DEVELOPMENT</p>
-            <h2>Keahlian & <span>Minat.</span></h2>
-
+          <div class="section-head js-reveal">
+            <p class="label">03 — Pengembangan diri</p>
+            <h2>Keahlian &amp; tech stack.</h2>
             <p>
               Beberapa bidang yang sedang saya pelajari dan kembangkan sebagai
               mahasiswa Sistem Informasi.
             </p>
           </div>
 
-          <div class="skills-grid">
-            <article class="skill-card js-reveal">
-              <div class="skill-card-top">
-                <span class="skill-number">01</span>
-                <span class="skill-symbol" aria-hidden="true">⌘</span>
-              </div>
-
+          <div class="bento bento-3">
+            <article class="cell js-reveal">
+              <p class="label muted">01</p>
               <h3>Analisis Sistem</h3>
-
               <p>
                 Mempelajari proses analisis kebutuhan, pemahaman alur sistem,
                 dan identifikasi permasalahan.
               </p>
-
-              <div class="skill-tags">
-                <span>#Analisis</span>
-                <span>#SistemInformasi</span>
+              <div class="tags">
+                <span>Analisis</span><span>Sistem Informasi</span>
               </div>
             </article>
-
-            <article class="skill-card js-reveal">
-              <div class="skill-card-top">
-                <span class="skill-number">02</span>
-                <span class="skill-symbol" aria-hidden="true">⌘</span>
-              </div>
-
+            <article class="cell js-reveal">
+              <p class="label muted">02</p>
               <h3>Web Development</h3>
-
               <p>
                 Mengenal dan mengembangkan website menggunakan teknologi dasar
                 pengembangan web.
               </p>
-
-              <div class="skill-tags">
-                <span>#HTML</span>
-                <span>#CSS</span>
-                <span>#JavaScript</span>
+              <div class="tags">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span>
               </div>
             </article>
-
-            <article class="skill-card js-reveal">
-              <div class="skill-card-top">
-                <span class="skill-number">03</span>
-                <span class="skill-symbol" aria-hidden="true">✳</span>
-              </div>
-
-              <h3>Komunikasi & Kolaborasi</h3>
-
+            <article class="cell js-reveal">
+              <p class="label muted">03</p>
+              <h3>Komunikasi &amp; Kolaborasi</h3>
               <p>
                 Mengembangkan kemampuan komunikasi, kerja sama tim, dan
                 penyampaian ide.
               </p>
-
-              <div class="skill-tags">
-                <span>#Teamwork</span>
-                <span>#Communication</span>
+              <div class="tags">
+                <span>Teamwork</span><span>Communication</span>
               </div>
             </article>
+          </div>
+
+          <div
+            class="stack js-reveal"
+            aria-label="Tech stack dan bidang yang dipelajari"
+          >
+            <div class="marquee">
+              <ul class="marquee-track">
+                <li class="tech"><span class="tech-ico">H5</span>HTML</li>
+                <li class="tech"><span class="tech-ico">C3</span>CSS</li>
+                <li class="tech"><span class="tech-ico">JS</span>JavaScript</li>
+                <li class="tech"><span class="tech-ico">PH</span>PHP</li>
+                <li class="tech"><span class="tech-ico">SQ</span>MySQL</li>
+                <li class="tech">
+                  <span class="tech-ico">AS</span>Analisis Sistem
+                </li>
+              </ul>
+            </div>
+            <div class="marquee reverse">
+              <ul class="marquee-track">
+                <li class="tech"><span class="tech-ico">CR</span>CRUD</li>
+                <li class="tech">
+                  <span class="tech-ico">AU</span>Login &amp; Autentikasi
+                </li>
+                <li class="tech">
+                  <span class="tech-ico">RP</span>Rekayasa Perangkat Lunak
+                </li>
+                <li class="tech"><span class="tech-ico">TW</span>Teamwork</li>
+                <li class="tech"><span class="tech-ico">KM</span>Komunikasi</li>
+                <li class="tech">
+                  <span class="tech-ico">WB</span>Web Development
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- EDUCATION / PENDIDIKAN -->
-      <section class="education-section section-padding" id="pendidikan">
+      <!-- EDUCATION -->
+      <section class="section" id="pendidikan">
         <div class="container">
-          <div class="section-heading js-reveal">
-            <p class="section-eyebrow">03 / EDUCATION JOURNEY</p>
-            <h2>Riwayat <span>Pendidikan.</span></h2>
-
+          <div class="section-head js-reveal">
+            <p class="label">04 — Pendidikan</p>
+            <h2>Riwayat pendidikan.</h2>
             <p>
               Perjalanan pendidikan yang menjadi bagian dari proses pembelajaran
               dan perkembangan diri saya.
             </p>
           </div>
 
-          <div class="education-list">
-            <article class="education-card js-reveal">
-              <div class="education-period">
-                <span>2026 — SEKARANG</span>
-                <span class="education-status current"> SEDANG DITEMPUH </span>
-              </div>
-
-              <div class="education-detail">
-                <div class="education-logo">
+          <ol class="edu-list">
+            <li class="edu-row js-reveal">
+              <span class="edu-period">2026 — Sekarang</span>
+              <div class="edu-main">
+                <div class="edu-logo">
                   <img
                     src="https://sistem.lldikti6.id/data/logo/061084.jpg"
                     alt="Logo Universitas Komputama Cilacap"
@@ -364,25 +531,17 @@
                     decoding="async"
                   />
                 </div>
-
                 <div>
                   <h3>Universitas Komputama Cilacap</h3>
-                  <p>Program Studi Sistem Informasi</p>
-                  <span class="education-extra">Semester 1</span>
+                  <p>Program Studi Sistem Informasi · Semester 1</p>
                 </div>
               </div>
-
-              <span class="education-index" aria-hidden="true">01</span>
-            </article>
-
-            <article class="education-card js-reveal">
-              <div class="education-period">
-                <span>2023 — 2026</span>
-                <span class="education-status completed">SELESAI</span>
-              </div>
-
-              <div class="education-detail">
-                <div class="education-logo">
+              <span class="status current">Sedang ditempuh</span>
+            </li>
+            <li class="edu-row js-reveal">
+              <span class="edu-period">2023 — 2026</span>
+              <div class="edu-main">
+                <div class="edu-logo">
                   <img
                     src="https://www.smkmuhmajenang.sch.id/uploads/img_8593_1524923845.jpg"
                     alt="Logo SMK Muhammadiyah Majenang"
@@ -390,25 +549,17 @@
                     decoding="async"
                   />
                 </div>
-
                 <div>
                   <h3>SMK Muhammadiyah Majenang</h3>
-                  <p>Rekayasa Perangkat Lunak (RPL)</p>
-                  <span class="education-extra">Jenjang SMK</span>
+                  <p>Rekayasa Perangkat Lunak (RPL) · Jenjang SMK</p>
                 </div>
               </div>
-
-              <span class="education-index" aria-hidden="true">02</span>
-            </article>
-
-            <article class="education-card js-reveal">
-              <div class="education-period">
-                <span>2021 — 2023</span>
-                <span class="education-status completed">SELESAI</span>
-              </div>
-
-              <div class="education-detail">
-                <div class="education-logo">
+              <span class="status">Selesai</span>
+            </li>
+            <li class="edu-row js-reveal">
+              <span class="edu-period">2021 — 2023</span>
+              <div class="edu-main">
+                <div class="edu-logo">
                   <img
                     src="https://smpn3majenang.sch.id/images/prestasi/1.jpg"
                     alt="Logo SMP Negeri 3 Majenang"
@@ -416,37 +567,33 @@
                     decoding="async"
                   />
                 </div>
-
                 <div>
                   <h3>SMP Negeri 3 Majenang</h3>
-                  <p>Pendidikan Menengah Pertama</p>
-                  <span class="education-extra">Jenjang SMP</span>
+                  <p>Pendidikan Menengah Pertama · Jenjang SMP</p>
                 </div>
               </div>
-
-              <span class="education-index" aria-hidden="true">03</span>
-            </article>
-          </div>
+              <span class="status">Selesai</span>
+            </li>
+          </ol>
         </div>
       </section>
 
-      <!-- CERTIFICATES / SERTIFIKAT -->
-      <section class="certificate-section section-padding" id="sertifikat">
+      <!-- CERTIFICATES -->
+      <section class="section" id="sertifikat">
         <div class="container">
-          <div class="section-heading js-reveal">
-            <p class="section-eyebrow">04 / CERTIFICATES & ACHIEVEMENTS</p>
-            <h2>Sertifikat & <span>Pencapaian.</span></h2>
-
+          <div class="section-head js-reveal">
+            <p class="label">05 — Sertifikat</p>
+            <h2>Sertifikat &amp; pencapaian.</h2>
             <p>
               Dokumentasi sertifikat kompetensi yang menjadi bagian dari
               perjalanan belajar dan pengembangan kemampuan saya.
             </p>
           </div>
 
-          <div class="certificate-grid">
-            <article class="certificate-card js-reveal">
+          <div class="two-col">
+            <article class="card js-reveal">
               <button
-                class="certificate-image-button"
+                class="cert-btn"
                 type="button"
                 data-lightbox="images/sertifikat-1.jpeg"
                 data-alt="Sertifikat kompetensi Pengembang Perangkat Lunak Aldrich Putra Utama"
@@ -458,26 +605,19 @@
                   loading="lazy"
                   decoding="async"
                 />
-
-                <span class="image-overlay" aria-hidden="true">
-                  LIHAT SERTIFIKAT ↗
-                </span>
+                <span class="overlay" aria-hidden="true">Perbesar ↗</span>
               </button>
-
-              <div class="certificate-info">
-                <span class="card-index">CERTIFICATE 01</span>
-
+              <div class="card-body">
+                <p class="label muted">Sertifikat 01</p>
                 <h3>Pengembang Perangkat Lunak</h3>
-
-                <p>BNSP & LSP SMK Muhammadiyah Majenang</p>
-
-                <p>Majenang · 5 Juni 2026</p>
+                <p>BNSP &amp; LSP SMK Muhammadiyah Majenang</p>
+                <p class="meta">Majenang · 5 Juni 2026</p>
               </div>
             </article>
 
-            <article class="certificate-card js-reveal">
+            <article class="card js-reveal">
               <button
-                class="certificate-image-button"
+                class="cert-btn"
                 type="button"
                 data-lightbox="images/sertifikat-2.jpeg"
                 data-alt="Sertifikat kompetensi Pengembang Web Front End Developer Aldrich Putra Utama"
@@ -489,161 +629,83 @@
                   loading="lazy"
                   decoding="async"
                 />
-
-                <span class="image-overlay" aria-hidden="true">
-                  LIHAT SERTIFIKAT ↗
-                </span>
+                <span class="overlay" aria-hidden="true">Perbesar ↗</span>
               </button>
-
-              <div class="certificate-info">
-                <span class="card-index">CERTIFICATE 02</span>
-
+              <div class="card-body">
+                <p class="label muted">Sertifikat 02</p>
                 <h3>Pengembang Web</h3>
-
-                <p>BNSP & LSP Teknologi Informatika Bisnis Digital</p>
-
-                <p>Tangerang · 30 Mei 2026</p>
+                <p>BNSP &amp; LSP Teknologi Informatika Bisnis Digital</p>
+                <p class="meta">Tangerang · 30 Mei 2026</p>
               </div>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- PROJECTS / PROYEK -->
-      <section class="projects-section section-padding" id="proyek">
+      <!-- CONTACT -->
+      <section class="section" id="kontak">
         <div class="container">
-          <div class="section-heading js-reveal">
-            <p class="section-eyebrow">05 / SELECTED WORKS</p>
-            <h2>Proyek & <span>Karya.</span></h2>
-
-            <p>
-              Beberapa proyek yang pernah saya kerjakan sebagai bagian dari
-              pengalaman belajar dan pengembangan kemampuan di bidang teknologi
-              informasi.
-            </p>
-          </div>
-
-          <div class="projects-grid">
-            <article class="project-card js-reveal">
-              <div class="project-visual project-visual-one">
-                <span class="project-visual-label">
-                  LIBRARY INFORMATION SYSTEM
-                </span>
-
-                <span class="project-visual-mark">LIB.</span>
-
-                <span class="project-visual-caption">
-                  SOFTWARE DEVELOPMENT
-                </span>
-              </div>
-
-              <div class="project-content">
-                <div class="project-meta">
-                  <span>PROJECT 01</span>
-                  <span>SMK · LSP P1</span>
-                </div>
-
-                <h3>Sistem Informasi Perpustakaan</h3>
-
-                <p>
-                  Website sistem informasi perpustakaan yang dikembangkan untuk
-                  membantu pengelolaan data perpustakaan. Proyek ini mencakup
-                  fitur CRUD serta autentikasi login dan logout.
-                </p>
-
-                <div class="project-tags">
-                  <span>#HTML</span>
-                  <span>#CSS</span>
-                  <span>#JavaScript</span>
-                  <span>#PHP</span>
-                  <span>#MySQL</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="project-card js-reveal">
-              <div class="project-visual project-visual-two">
-                <span class="project-visual-label">
-                  EDUCATION INFORMATION WEBSITE
-                </span>
-
-                <span class="project-visual-mark">EDU.</span>
-
-                <span class="project-visual-caption"> WEB DEVELOPMENT </span>
-              </div>
-
-              <div class="project-content">
-                <div class="project-meta">
-                  <span>PROJECT 02</span>
-                  <span>SMK · LSP P3</span>
-                </div>
-
-                <h3>Website Informasi Pendidikan</h3>
-
-                <p>
-                  Proyek website bertema informasi pendidikan yang menjadi
-                  bagian dari pengalaman awal saya dalam mengenal dan
-                  mempelajari proses pengembangan website.
-                </p>
-
-                <div class="project-tags">
-                  <span>#WebDevelopment</span>
-                  <span>#Education</span>
-                  <span>#LearningProject</span>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- CONTACT / KONTAK -->
-      <section class="contact-section section-padding" id="kontak">
-        <div class="container">
-          <div class="contact-card js-reveal">
-            <div class="contact-content">
-              <p class="section-eyebrow">06 / GET IN TOUCH</p>
-
-              <h2>Mari terhubung dan <span>bertukar ide.</span></h2>
-
+          <div class="contact">
+            <div class="contact-main js-reveal">
+              <p class="label">06 — Kontak</p>
+              <h2>Mari terhubung dan bertukar ide.</h2>
               <p>
                 Terima kasih telah mengunjungi portfolio saya. Saya terbuka
                 untuk belajar, berbagi ide, dan membangun koneksi positif.
               </p>
-
-              <p class="contact-note">
-                Email:
-                <a href="mailto:aldrichputrautama629@gmail.com">
-                  aldrichputrautama629@gmail.com
-                </a>
-              </p>
+              <a
+                class="btn btn-solid"
+                href="mailto:aldrichputrautama629@gmail.com"
+                >aldrichputrautama629@gmail.com</a
+              >
             </div>
-
-            <div class="contact-decoration" aria-hidden="true">
-              <span>APU</span>
-              <span>LET'S CONNECT</span>
+            <div class="contact-side js-reveal">
+              <p class="label muted">Media sosial</p>
+              <ul class="social-list">
+                <li>
+                  <a
+                    href="https://www.instagram.com/aldrchptraa/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram Aldrich"
+                    >Instagram <span aria-hidden="true">↗</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.tiktok.com/@ashcroftparker"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="TikTok Aldrich"
+                    >TikTok <span aria-hidden="true">↗</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/aldrichputraa"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub Aldrich"
+                    >GitHub <span aria-hidden="true">↗</span></a
+                  >
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </section>
     </main>
 
-    <!-- FOOTER -->
     <footer class="site-footer">
       <div class="container footer-container">
-        <a href="#beranda" class="footer-brand" aria-label="Kembali ke beranda">
-          APU<span aria-hidden="true">.</span>
-        </a>
-
-        <p>Designed & developed by Aldrich Putra Utama.</p>
-
-        <p class="footer-copyright">
-          © <span id="tahun"></span> APU Digital Portfolio.
-        </p>
+        <span class="footer-brand">APU</span>
+        <span class="muted">Exploring Technology, Creating Possibilities.</span>
+        <span class="mono muted"
+          >© <span id="tahun">2026</span> Aldrich Putra Utama</span
+        >
       </div>
     </footer>
 
-    <!-- BACK TO TOP -->
     <button
       class="back-to-top"
       id="backToTop"
@@ -653,15 +715,13 @@
       ↑
     </button>
 
-    <!-- CERTIFICATE LIGHTBOX -->
     <div
       class="lightbox"
       id="lightbox"
       role="dialog"
       aria-modal="true"
-      aria-label="Pratinjau gambar sertifikat"
+      aria-label="Pratinjau sertifikat"
       aria-hidden="true"
-      tabindex="-1"
       inert
     >
       <button
@@ -672,8 +732,10 @@
       >
         ×
       </button>
-
-      <img src="" alt="" class="lightbox-image" id="lightboxImage" />
+      <img class="lightbox-image" id="lightboxImage" alt="" />
     </div>
+
+    <div class="cursor cursor-ring" aria-hidden="true"><span></span></div>
+    <div class="cursor cursor-dot" aria-hidden="true"><span></span></div>
   </body>
 </html>
